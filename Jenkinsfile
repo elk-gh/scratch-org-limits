@@ -7,9 +7,6 @@ node {
     def SF_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
     def SF_USERNAME=env.HUB_ORG_DH
     def SERVER_KEY_CREDENTIALS_ID=env.JWT_CRED_ID_DH
-    def TEST_LEVEL='RunLocalTests'
-    def PACKAGE_NAME='0Ho0N000000CaT3SAK'
-    def PACKAGE_VERSION
     def SF_INSTANCE_URL = env.SFDC_HOST_DH ?: "https://login.salesforce.com"
 
     def toolbelt = tool 'toolbelt'
@@ -50,7 +47,7 @@ node {
             // Query Scratch Org Limits.
             // -------------------------------------------------------------------------
             stage('Query Scratch Org Limits') {
-                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:limits:api:display -u ${SF_USERNAME}"
+                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:limits:api:display --targetusername ${SF_USERNAME}"
                 if (rc != 0) {
                     error 'Salesforce query scratch org limits failed.'
                 }
