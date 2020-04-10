@@ -50,7 +50,7 @@ node {
             // Query Scratch Org Limits.
             // -------------------------------------------------------------------------
             stage('Query Scratch Org Limits') {
-                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:limits:api:display --targetdevhubusername ${SF_USERNAME}"
+                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:limits:api:display -u ${SF_USERNAME}"
                 if (rc != 0) {
                     error 'Salesforce query scratch org limits failed.'
                 }
