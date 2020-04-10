@@ -4,7 +4,7 @@ import groovy.json.JsonSlurperClassic
 
 node {
 
-    def SF_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
+    def SF_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DHT
     def SF_USERNAME=env.HUB_ORG_DH
     def SERVER_KEY_CREDENTIALS_ID=env.JWT_CRED_ID_DH
     def SF_INSTANCE_URL = env.SFDC_HOST_DH ?: "https://login.salesforce.com"
